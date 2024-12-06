@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import "./App.css";
+import ProductCart from "./components/ProductCard";
+import Cart from "./components/Cart";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="font-redhat bg-rose-50 flex justify-center">
+      <section className="flex flex-col md:flex-row gap-12 my-12 mx-24">
+        <div className="">
+          <ProductCart />
+        </div>
+        <div className="w-5/12 bg-white rounded-lg p-6 shadow-md h-fit">
+          <Cart />
+        </div>
+      </section>
     </div>
   );
 }
