@@ -6,7 +6,7 @@ import Cart from "./components/Cart";
 function App() {
   return (
     <div className="font-redhat bg-rose-50 flex justify-center">
-      <section className="flex flex-col md:flex-row gap-12 my-12 mx-24">
+      <section className="flex flex-col md:flex-row gap-12 xs:my-12 xs:mx-24 my-6 mx-12">
         <div className="">
           <ProductCart />
         </div>
