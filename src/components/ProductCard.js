@@ -1,25 +1,10 @@
-import items from "../data.json";
-
-import React, { useReducer } from "react";
-import { cartReducer } from "../hooks/useCart";
-
-const initialState = {};
-
-export default function ProductCart() {
-  const [cartState, dispatch] = useReducer(cartReducer, initialState);
-
-  const handleAddToCart = (itemId) => {
-    dispatch({ type: "ADD_ITEM", itemId });
-  };
-
-  const handleIncrement = (itemId) => {
-    dispatch({ type: "INCREMENT_ITEM", itemId });
-  };
-
-  const handleDecrement = (itemId) => {
-    dispatch({ type: "DECREMENT_ITEM", itemId });
-  };
-
+export default function ProductCart({
+  items,
+  cartState,
+  handleAddToCart,
+  handleDecrement,
+  handleIncrement,
+}) {
   return (
     <div className="mx-auto max-w-2xl py-2 sm:py-2 lg:max-w-7xl">
       <h1 className="text-4xl mx-auto font-bold tracking-tight text-gray-900">
@@ -32,13 +17,15 @@ export default function ProductCart() {
               <img
                 alt={item.name}
                 src={item.image.desktop}
-                className={`relative aspect-square w-full rounded-md object-cover ${cartState[item.id] ? 'border-2 border-red' : 'border-none'} hover:opacity-75 lg:aspect-auto lg:h-auto z-0`}
+                className={`relative aspect-square w-full rounded-md object-cover ${
+                  cartState[item.id] ? "border-2 border-red" : "border-none"
+                } hover:opacity-75 lg:aspect-auto lg:h-auto z-0`}
               />
               {cartState[item.id] ? (
-                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-between items-center border-2 border-red bg-red px-2.5 py-3.5 rounded-3xl font-semibold z-10 w-1/2 h-8">
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-between items-center border-2 border-red bg-red px-2.5 py-3.5 rounded-3xl font-semibold z-10 w-1/2 h-10">
                   <button
                     onClick={(e) => handleDecrement(item.id)}
-                    className="group text-lg bg-inherit hover:bg-white border-2 border-white rounded-full"
+                    className="group text-lg bg-inherit hover:bg-white transition hover:duration-300 ease-in-out border-2 border-white rounded-full"
                   >
                     <svg
                       className="bg-inherit my-2 mx-1"
@@ -60,7 +47,7 @@ export default function ProductCart() {
                   </span>
                   <button
                     onClick={(e) => handleIncrement(item.id)}
-                    className="group text-lg bg-inherit hover:bg-white border-2 border-white rounded-full"
+                    className="group text-lg bg-inherit hover:bg-white transition duration-0 hover:duration-300 ease-in-out border-2 border-white rounded-full"
                   >
                     <svg
                       className="bg-inherit my-1 mx-1"
@@ -80,7 +67,7 @@ export default function ProductCart() {
                 </div>
               ) : (
                 <button
-                  className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-rose-300 hover:border-red bg-white px-auto py-1.5 rounded-3xl flex gap-1 justify-center items-center font-semibold text-xs hover:text-red z-10 w-1/2 h-8"
+                  className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition duration-0 active:duration-500 border-2 border-rose-300 hover:border-red bg-white px-auto py-1.5 rounded-3xl flex gap-1 justify-center items-center font-semibold text-xs hover:text-red z-10 w-1/2 h-10"
                   onClick={(e) => handleAddToCart(item.id)}
                 >
                   <img

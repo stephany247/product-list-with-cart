@@ -3,15 +3,16 @@ export const cartReducer = (state, action) => {
     case "ADD_ITEM":
       return { ...state, [action.itemId]: (state[action.itemId] || 0) + 1 };
     case "INCREMENT_ITEM":
-      return { ...state, [action.itemId]: state[action.itemId] + 1 };
+      return { ...state, [action.itemId]: (state[action.itemId] || 0) + 1 };
     case "DECREMENT_ITEM":
-      const newCount = state[action.itemId] - 1;
+      const newCount = (state[action.itemId] || 0) - 1;
       if (newCount <= 0) {
-        const { [action.itemId]: _, ...rest } = state; // Remove item from cart if count is 0
+        const { [action.itemId]: x, ...rest } = state;
         return rest;
       }
       return { ...state, [action.itemId]: newCount };
     default:
-      throw new Error(`Unknown action type: ${action.type}`);
+      console.log(`Unknown action type: ${action.type}`);
+      return state;
   }
 };
