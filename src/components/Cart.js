@@ -1,34 +1,26 @@
 import React from "react";
 
-export default function Cart({ cartState, items, Cart }) {
-  // Calculate the total price
-  const calculateTotal = () => {
-    return Object.keys(cartState)
-      .reduce((total, itemId) => {
-        const item = items.find((item) => item.id === parseInt(itemId));
-        if (item) {
-          total += item.price * cartState[itemId];
-        }
-        return total;
-      }, 0)
-      .toFixed(2);
-  };
-
-
+export default function Cart({
+  cartState,
+  items,
+  handleRemoveFromCart,
+  handleConfirmation,
+  calculateTotal,
+}) {
   return (
     <div>
       <h1 className="text-2xl font-bold text-red">
         Your Cart (
-        {Object.values(cartState).reduce(
+        {Object.values(cartState.items).reduce(
           (total, quantity) => total + quantity,
           0
         )}
         )
       </h1>
-      {Object.keys(cartState).length > 0 ? (
+      {Object.keys(cartState.items).length > 0 ? (
         <div className="my-4">
           <ul className="list-none">
-            {Object.keys(cartState).map((itemId) => {
+            {cartState.order.map((itemId) => {
               const item = items.find((item) => item.id === parseInt(itemId));
               return item ? (
                 <li
@@ -38,29 +30,33 @@ export default function Cart({ cartState, items, Cart }) {
                   <div className="">
                     <p className="font-bold">{item.name}</p>
                     <div className="flex gap-3 py-1 text-sm font-semibold items-center">
-                      <p className="text-red">{cartState[itemId]}x</p>
+                      <p className="text-red">{cartState.items[itemId]}x</p>
                       <p className="text-rose-400 font-normal">
                         @ {`$${item.price.toFixed(2)}`}
                       </p>
                       <p className="text-rose-500">{`$${(
-                        cartState[itemId] * item.price
+                        cartState.items[itemId] * item.price
                       ).toFixed(2)}`}</p>
                     </div>
                   </div>
-                  <svg
-                    className="group border-2 border-rose-300 hover:border-rose-500 rounded-full p-0.5 w-5 h-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    viewBox="0 0 10 10"
-                  >
-                    <path
-                      fill="#CAAFA7"
-                      className="group-hover:fill-rose-500"
-                      d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
-                    />
-                  </svg>
+
+                  <button onClick={(e) => handleRemoveFromCart(item.id)}>
+                    <svg
+                      className="group border-2 border-rose-300 hover:border-rose-500 rounded-full p-0.5 w-5 h-5"
+                      alt={`Remove ${item.name}`}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      fill="none"
+                      viewBox="0 0 10 10"
+                    >
+                      <path
+                        fill="#CAAFA7"
+                        className="group-hover:fill-rose-500"
+                        d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+                      />
+                    </svg>
+                  </button>
                 </li>
               ) : null;
             })}
@@ -93,7 +89,12 @@ export default function Cart({ cartState, items, Cart }) {
               delivery
             </p>
           </div>
-          <button className="text-center w-full bg-red rounded-full p-3 mt-4 text-rose-50 hover:bg-orange-800">Confirm Order</button>
+          <button
+            className="text-center w-full bg-red rounded-full p-3 mt-4 text-rose-50 hover:bg-orange-800"
+            onClick={handleConfirmation}
+          >
+            Confirm Order
+          </button>
         </div>
       ) : (
         <div>
