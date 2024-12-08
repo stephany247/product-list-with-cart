@@ -21,7 +21,7 @@ export default function ProductCart({
                   cartState[item.id] ? "border-2 border-red" : "border-none"
                 } hover:opacity-75 lg:aspect-auto lg:h-auto z-0`}
               />
-              {cartState[item.id] ? (
+              {cartState.items[item.id] ? (
                 <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-between items-center border-2 border-red bg-red px-2.5 py-3.5 rounded-3xl font-semibold z-10 w-1/2 h-10">
                   <button
                     onClick={(e) => handleDecrement(item.id)}
@@ -43,7 +43,7 @@ export default function ProductCart({
                     </svg>
                   </button>
                   <span className="mx-2 text-sm text-white font-semibold">
-                    {cartState[item.id]}
+                    {cartState.items[item.id]}
                   </span>
                   <button
                     onClick={(e) => handleIncrement(item.id)}
