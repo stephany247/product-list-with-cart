@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Frontend Mentor - Product list with cart solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
+- [How to Run the Project](#how-to-run-the-project)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- Add items to the cart and remove them
+- Increase/decrease the number of items in the cart
+- See an order confirmation modal when they click "Confirm Order"
+- Reset their selections when they click "Start New Order"
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Solution URL: [Frontend Mentor Solution](https://github.com/stephany247/product-list-with-cart)
+- Live Site URL: [Product List with Cart - Live Demo](https://product-list-with-cart-app.vercel.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## My process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built with
 
-### `npm run eject`
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Tailwind CSS
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### What I learned
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project helped me deepen my understanding of React and state management, especially for handling dynamic user interactions like adding items to the cart and updating the cart totals. Additionally, this is my first time using Tailwind CSS, and I enjoyed how quickly it allowed me to style the app responsively. One of the key takeaways was learning how to efficiently handle conditional rendering based on user actions, like displaying the order confirmation modal.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Continued development
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+For future projects, I want to focus on improving the modularity and component structure of my app to make it more reusable and maintainable. This includes breaking down larger components into smaller, more focused ones that can be easily reused across different parts of the application. I aim to create more generic UI components, such as buttons, input fields, and modals, that can be shared across multiple pages or sections of the app. Additionally, I plan to explore custom hooks for extracting reusable logic, and better manage state between components using tools like the Context API or Redux. This approach will make my codebase cleaner, more scalable, and easier to update in the future.
 
-## Learn More
+### Useful resources
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs/installation) - A fantastic resource for styling.
+- [React Docs](https://react.dev/learn) - Helpful for mastering React hooks and state management.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
 
-### Code Splitting
+- Frontend Mentor - [stephany247](https://www.frontendmentor.io/profile/stephany247)
+- Twitter - [@stephanyoguocha](https://x.com/stephanyoguocha)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Acknowledgments
 
-### Analyzing the Bundle Size
+Thanks to Frontend Mentor for providing such great challenges to work on! I also want to thank the React community for all the helpful resources and tutorials available.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## How to Run the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Clone the repository:
 
-### Advanced Configuration
+Open your terminal and run the following command to clone the repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+git clone https://github.com/your-username/your-repository-name.git
+```
 
-### Deployment
+2. Navigate into the project directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+After cloning, navigate into the project folder:
 
-### `npm run build` fails to minify
+```sh
+cd your-repository-name
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Install dependencies:
+
+Run the following command to install all the necessary dependencies:
+
+```sh
+npm install
+```
+
+4. Run the development server:
+
+Start the app in development mode with:
+
+```sh
+npm start
+```
+The app should now be running at http://localhost:3000.
